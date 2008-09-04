@@ -32,12 +32,13 @@ Spree::Initializer.run do |config|
   config.gem "mini_magick", :version => '1.2.3'
   config.gem "activemerchant", :lib => "active_merchant", :version => '1.3.2'
   config.gem "tlsmail"
+  config.gem 'active_presenter', :version => '0.0.4'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  config.plugins = [ :all, :extension_patches ] 
+  config.plugins = [ :all, :resource_controller, :extension_patches ] 
   
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )

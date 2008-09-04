@@ -121,6 +121,7 @@ presentation: Presentación
 previous: Anterior
 price: Precio
 problem_authorizing_card: 
+problem_capturing_card:
 problems_processing_order: Hemos tenido al procesar su pedido
 process: Procesar
 product: Producto
@@ -190,6 +191,7 @@ order_status_canceled:
 order_status_returned: 
 order_status_shipped: 
 order_status_paid: 
+order_status_abandoned: 
 order_status_pending_payment: 
 order_operation_authorize: 
 order_operation_capture: 
