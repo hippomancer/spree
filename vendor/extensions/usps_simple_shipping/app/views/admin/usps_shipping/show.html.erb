@@ -1,0 +1,100 @@
+<h1><%=t('Shipping - USPS Only, Real-Time Quotes') %></h1>
+
+<% form_for :shipping do |form| %>
+<dl>
+	<dt><label for='shipping_api_key'><%= t('API Login Key') %></label></dt>
+	<dd><%= form.text_field :api_key, :size => 12 %>
+		<p class='explain'>
+			You will both need to obtain an <%= link_to 'API key from the USPS', 'https://secure.shippingapis.com/registration/' %> and contact them afterward to give you access to the live server. You cannot use this feature until this is setup.
+		</p>
+	</dd>	
+	
+	<dt>Shipping Origin</dt>
+	<dd>
+		<label for='shipping_origin_city'><%= t('City') %></label>
+		<%= form.text_field :origin_city, :size => 20 %>
+		
+		<label for='shipping_origin_zip'><%= t('Zip') %></label>
+		<%= form.text_field :origin_zip, :size => 5 %>
+	</dd>
+	
+	<dt><label for='shipping_charge_is_taxable'><%= t('Shipping Charge is Taxable') %></label></dt>
+	<dd>
+		<%= form.check_box :taxable %>
+		<p class='explain'>
+			In some states, the shipping charge is not taxable under certain circumstances, such as the line-item for shipping is exactly what the merchant is paying for shipping.
+		</p>
+	</dd>
+
+	<dt><label for='shipping_tare_percent'><%= t('Tare Percent') %></label></dt>
+	<dd>
+		<%= form.text_field :tare_percent %>
+		<p class='explain'>
+			Percentage of the total weight of an order to use as a weight for the packing materials.
+		</p>
+	</dd>
+	
+	<dt><label for='shipping_tare_minimum'><%= t('Tare Minimum') %></label></dt>
+	<dd>
+		<%= form.text_field :tare_minimum %>
+		<p class='explain'>
+			Minimum weight to use for packing materials.
+		</p>
+	</dd>
+	
+	<dt><%= t('Services Used') %></dt>
+	<dd class='checklist'>
+		<% fields_for :domestic_services do |ship| %>
+			<%= ship.check_box :first_class_mail %>
+			<label for='domestic_services_first_class_mail'>First Class Mail</label>
+			
+			<%= ship.check_box :first_class_mail_flat %>
+			<label for='domestic_services_first_class_mail_flat'>First Class Mail Flat</label>
+
+			<%= ship.check_box :first_class_mail_parcel %>
+			<label for='domestic_services_first_class_mail_parcel'>First Class Mail Parcel</label>
+
+			<%= ship.check_box :library_mail %>
+			<label for='domestic_services_library_mail'>Library Mail</label>
+			
+			<%= ship.check_box :media_mail %>
+			<label for='domestic_services_media_mail'>Media Mail</label>
+
+			<%= ship.check_box :bound_printed_matter %>
+			<label for='domestic_services_bound_printed_matter'>Bound Printed Matter</label>
+
+			<%= ship.check_box :priority_mail_flat_rate_envelope %>
+			<label for='domestic_services_priority_mail_flat_rate_envelope'>Priority Mail Flat Rate Envelope</label>
+
+			<%= ship.check_box :priority_mail %>
+			<label for='domestic_services_priority_mail'>Priority Mail</label>
+
+			<%= ship.check_box :parcel_post %>
+			<label for='domestic_services_parcel_post'>Parcel Post</label>
+
+			<%= ship.check_box :priority_mail_flat_rate_box %>
+			<label for='domestic_services_priority_mail_flat_rate_box'>Priority Mail Flat-Rate Box</label>
+
+			<%= ship.check_box :priority_mail_large_flat_rate_box %>
+			<label for='domestic_services_priority_mail_large_flat_rate_box'>Priority Mail Large Flat-Rate Box</label>
+
+			<%= ship.check_box :express_mail_flat_rate_envelope %>
+			<label for='domestic_services_express_mail_flat_rate_envelope'>Express Mail Flat-Rate Envelope</label>
+
+			<%= ship.check_box :express_mail %>
+			<label for='domestic_services_express_mail'>Express Mail</label>
+
+			<%= ship.check_box :express_mail_flat_rate_envelope_sunday_holiday_guarantee %>
+			<label for='domestic_services_express_mail_flat_rate_envelope_sunday_holiday_guarantee'>Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee</label>
+
+			<%= ship.check_box :express_mail_sunday_holiday_guarantee %>
+			<label for='domestic_services_express_mail_sunday_holiday_guarantee'>Express Mail Sunday/Holiday Guarantee</label>
+
+			
+
+
+
+		<% end %>
+	</dd>
+</dl>
+<% end %>
